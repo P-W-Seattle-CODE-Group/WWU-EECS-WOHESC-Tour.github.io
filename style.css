@@ -190,10 +190,10 @@ body {
     justify-content: center;
     
     border-radius: 50px;
-    background-color: rgba(19, 39, 77, 1);
+    background-color: rgba(41, 44, 63, 1);
     backdrop-filter: blur(4px);
-    box-shadow: 0px 5px 5px rgb(10, 20, 37),
-    inset 0px 2px 0px rgb(46, 88, 166);
+    box-shadow: 0px 5px 10px rgba(41, 44, 63, 0.9),
+    inset 0px 2px 0px rgb(81, 84, 103);
 
     text-shadow: 0px 3px 0px rgb(44,44,39);
 
@@ -216,7 +216,7 @@ body {
     font-weight: 400;
     color: rgb(244,244,239);
 
-    background-color: rgba(19, 39, 77, 1);
+    background-color: rgba(41, 44, 63, 1);
     /*
     background-color: rgb(25, 48, 90);
     border-radius: 50%;
@@ -238,10 +238,10 @@ body {
     font-size: 18px;
     color: rgb(244,244,239);
 
-    background-color: rgb(25,48,90);
+    background-color: rgb(67, 66, 84);
     border-radius: 50px;
-    box-shadow: 0px 5px 5px rgb(10, 20, 37),
-    inset 0px 2px 0px rgb(46, 88, 166);
+    box-shadow: 0px 5px 5px rgb(27, 26, 44),
+    inset 0px 2px 0px rgb(107, 106, 124);
 
     text-shadow: 0px 3px 0px rgb(44,44,39);
 }
@@ -273,7 +273,7 @@ body {
     position: relative;
     height: 15%;
     width: 90%;
-    top: -30%;
+    top: -31%;
     left: 5%;
     
     opacity: 0;

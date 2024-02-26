@@ -18,16 +18,16 @@ let nextButton = document.getElementById("next-button")
 let backButton = document.getElementById("back-button")
 
 nextButton.addEventListener("mouseenter", function() {
-    nextButton.style.backgroundColor = 'rgb(35, 58, 100)';
+    nextButton.style.backgroundColor = 'rgb(87, 86, 104)';
 })
 nextButton.addEventListener("mouseleave", function() {
-    nextButton.style.backgroundColor = 'rgb(25,48,90)';
+    nextButton.style.backgroundColor = 'rgb(67, 66, 84)';
 })
 backButton.addEventListener("mouseenter", function() {
-    backButton.style.backgroundColor = 'rgb(35, 58, 100)';
+    backButton.style.backgroundColor = 'rgb(87, 86, 104)';
 })
 backButton.addEventListener("mouseleave", function() {
-    backButton.style.backgroundColor = 'rgb(25,48,90)';
+    backButton.style.backgroundColor = 'rgb(67, 66, 84)';
 })
 
 
@@ -62,7 +62,7 @@ function infoDropdown () {
 }
 function infoPullUp() {
     infoSlider.style.height = '15%';
-    infoSlider.style.top = '-30%';
+    infoSlider.style.top = '-31%';
     viewerDiv.style.top = '-125%';
     infoSliderState -= 1
       
