@@ -30,6 +30,9 @@ backButton.addEventListener("mouseleave", function() {
     backButton.style.backgroundColor = 'rgb(25,48,90)';
 })
 
+
+
+
 let infoSlider = document.getElementById('info-container')
 let slideInfo = document.getElementById('slide-info')
 let infoHeader = document.getElementById('info-slider-head')

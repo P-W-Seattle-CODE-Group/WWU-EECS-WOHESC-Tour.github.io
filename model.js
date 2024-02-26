@@ -52,38 +52,38 @@ function mainViewer() {
         /*Lighting setup*/
     /*Ambient Light for basic scene lighting*/
     const ambientColor = new THREE.Color ( "rgb(255,255,255)" )
-    const ambientLight = new THREE.AmbientLight(ambientColor, 0.65);
+    const ambientLight = new THREE.AmbientLight(ambientColor);
     scene.add(ambientLight);
 
+    ambientLight.intensity = 0.9
+
     /*Primary spot light*/
-    const spotColor = new THREE.Color ( "rgb(255,245,245)" );
+    const spotColor = new THREE.Color ( "rgb(245,235,165)" );
     const spotLight = new THREE.SpotLight ( spotColor );
     const spotLightHelper = new THREE.SpotLightHelper( spotLight );
     //scene.add(spotLightHelper)
     scene.add(spotLight);
 
-    spotLight.position.set (-3000, 2000, 7500)
+    spotLight.position.set (-3000, -2000, 7500)
+    spotLight.intensity = 0.75
     spotLight.castShadow = true;
     spotLight.angle = Math.PI / 20;
     spotLight.penumbra = 1;
     spotLight.decay = 1;
-    spotLight.shadow.camera.near = 0.1;
+    spotLight.shadow.camera.near = 1;
     spotLight.shadow.camera.far = 50000;
-    spotLight.shadow.mapSize.height = 4096
-    spotLight.shadow.mapSize.width = 4096
-    spotLight.shadow.bias = 0.01
+    spotLight.shadow.mapSize.height = 1024 * 1;
+    spotLight.shadow.mapSize.width = 1024 * 1;
 
 
-    const backColor = new THREE.Color ( "rgb(255,255,255)" );
+    const backColor = new THREE.Color ( "rgb(200, 195, 195)" );
     const backdirectionalLight = new THREE.DirectionalLight( backColor );
-    backdirectionalLight.position.set(3000, -2000, 7500);
-    backdirectionalLight.intensity = 0.35;
+    backdirectionalLight.position.set(3000, 2000, 7500);
+    backdirectionalLight.intensity = 0.25;
     backdirectionalLight.castShadow = true;
-    backdirectionalLight.shadow.mapSize.width = 1024 * 5;
-    backdirectionalLight.shadow.mapSize.height = 1024 * 5;
-    backdirectionalLight.shadow.bias = -0.0005;
+    backdirectionalLight.shadow.mapSize.width = 1024 * 1;
+    backdirectionalLight.shadow.mapSize.height = 1024 * 1;
     backdirectionalLight.decay = 1;
-    backdirectionalLight.distance = 100;
     scene.add(backdirectionalLight);
 
 
@@ -105,35 +105,29 @@ function mainViewer() {
 
     loader.load ('public/site-model.3dm', function(object){
         object.traverse( function(child){
-            if (child instanceof THREE.Mesh) {
-                child.castShadow = false;
-                child.receiveShadow = true;
-            }
+            child.castShadow = false;
+            child.receiveShadow = true;
         }); 
         scene.add(object)
     });
     loader.load ('public/site-trees.3dm', function(object){
         object.traverse( function(child){
-            if (child instanceof THREE.Mesh) {
-                child.castShadow = false;
-                child.receiveShadow = true;
-            }
+            child.castShadow = true;
+            child.receiveShadow = false;
         }); 
         scene.add(object)
     });
     loader.load ('public/site-buildings.3dm', function(object){
         object.traverse( function(child){
-            if (child instanceof THREE.Mesh) {
-                child.castShadow = true;
-                child.receiveShadow = true;
-            }
+            child.castShadow = true;
+            child.receiveShadow = false;
         }); 
         scene.add(object)
     });
     loader.load ('public/eecs-simple.3dm', function(object){
         object.traverse( function(child){
             child.castShadow = true;
-            child.receiveShadow = true;
+            child.receiveShadow = false;
         }); 
         scene.add(object)
     });
@@ -160,7 +154,7 @@ function mainViewer() {
     };
 
     let radius = 5000;
-    let speed = 0.01;
+    let speed = 0.001;
     let angle = 0;
 
     function spotlightTurntable () {
@@ -170,8 +164,8 @@ function mainViewer() {
         let nextX = centerPoint.x + radius * Math.cos(angle)
         let nextY = centerPoint.y + radius * Math.sin(angle)
 
-        spotLight.position.set(nextX, nextY, 7500)
-        backdirectionalLight.position.set(-(nextX),-(nextY), 7500)
+        spotLight.position.set(-nextX, -nextY, 7500)
+        backdirectionalLight.position.set(nextX, nextY, 7500)
 
     }
     spotlightTurntable();
@@ -186,7 +180,7 @@ function mainViewer() {
         requestAnimationFrame( animate );
         TWEEN.update();
         render();
-        
+        /*
         console.log(' ')
         console.log('Position')
         console.log(camera.position)
@@ -195,7 +189,7 @@ function mainViewer() {
         console.log('FOV')
         console.log(camera.fov)
         console.log(' ')
-              
+        */
     }
     animate();
 
@@ -234,6 +228,7 @@ function mainViewer() {
         updateCamera();
         updateInfoText();
     })
+
 
     let stateMarker = document.getElementById('state-marker')
     let infoText = document.getElementById('info-slider-head')
