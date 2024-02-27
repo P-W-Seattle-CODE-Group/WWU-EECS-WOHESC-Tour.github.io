@@ -154,7 +154,7 @@ function mainViewer() {
     };
 
     let radius = 5000;
-    let speed = 0.001;
+    let speed = 0.0005;
     let angle = 0;
 
     function spotlightTurntable () {
@@ -270,7 +270,7 @@ function mainViewer() {
         animateCamera(
             new THREE.Vector3(-1750,-1750,2500),
             new THREE.Vector3(0,0,500),
-            3000
+            6000
         );
         state += 1;
     });
@@ -282,17 +282,17 @@ function mainViewer() {
             animateCamera(
                 new THREE.Vector3(-1750,-1750,2500), 
                 new THREE.Vector3(0,0,500), 
-                8000
+                6000
             )
         }else if (state === 2) {
             animateCamera(
-                new THREE.Vector3(30,-175,325), 
-                new THREE.Vector3(45,-15,330), 
-                4000
+                new THREE.Vector3(35,-165,325), 
+                new THREE.Vector3(40,-15,340), 
+                6000
             )
         } else if (state === 3) {
             animateCamera(
-                new THREE.Vector3(175,-200,550), 
+                new THREE.Vector3(155,-135,500), 
                 new THREE.Vector3(50,55,325), 
                 4000
             )

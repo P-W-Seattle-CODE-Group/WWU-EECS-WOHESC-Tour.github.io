@@ -7,12 +7,41 @@ let enterButton = document.getElementById("start-button")
 let uiDiv = document.getElementById("ui-container")
 let infoDiv = document.getElementById("info-container")
 
-enterButton.addEventListener("click", function() {
-    landingDiv.classList.add('animate-out');
-    uiDiv.classList.add('animate-in');
-    infoDiv.classList.add('animate-in');
-    console.log('Button clicked!');
-})
+function loadingPause () {
+    enterButton.textContent="Loading 0%"
+    enterButton.style.backgroundColor = 'rgba(250,250,250,0.05)'
+    setTimeout(() => {
+        enterButton.textContent='Loading 20%'
+        enterButton.style.backgroundColor = 'rgba(250,250,250,0.25)'
+    }, 1000);
+    setTimeout(() => {
+        enterButton.textContent='Loading 40%'
+        enterButton.style.backgroundColor = 'rgba(250,250,250,0.45)'
+    }, 2000);
+    setTimeout(() => {
+        enterButton.textContent='Loading 60%'
+        enterButton.style.backgroundColor = 'rgba(250,250,250,0.65)'
+    }, 3000);
+    setTimeout(() => {
+        enterButton.textContent='Loading 80%'
+        enterButton.style.backgroundColor = 'rgba(250,250,250,0.75)'
+    }, 4000);
+    setTimeout(() => {
+        enterButton.textContent='Loading 100%'
+        enterButton.style.backgroundColor = 'rgba(250,250,250,0.95)'
+    }, 5000);
+    setTimeout(() => {
+        enterButton.textContent=`Let's Begin!`
+        enterButton.addEventListener("click", function() {
+            landingDiv.classList.add('animate-out');
+            uiDiv.classList.add('animate-in');
+            infoDiv.classList.add('animate-in');
+            console.log('Button clicked!');
+        })
+    }, 6000);
+}
+loadingPause();
+
 
 let nextButton = document.getElementById("next-button")
 let backButton = document.getElementById("back-button")
