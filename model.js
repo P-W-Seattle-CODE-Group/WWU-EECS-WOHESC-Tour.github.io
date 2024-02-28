@@ -180,7 +180,7 @@ function mainViewer() {
         requestAnimationFrame( animate );
         TWEEN.update();
         render();
-        /*
+        
         console.log(' ')
         console.log('Position')
         console.log(camera.position)
@@ -189,7 +189,7 @@ function mainViewer() {
         console.log('FOV')
         console.log(camera.fov)
         console.log(' ')
-        */
+        
     }
     animate();
 
@@ -245,11 +245,11 @@ function mainViewer() {
             infoMain.removeAttribute('class')
             infoMain.classList.add('slide-two');
         } else if (state == 3) {
-            infoText.textContent = `• Timber Innovation: Inside & Out •`
+            infoText.textContent = `• Systems Integration: Net-Positive •`
             infoMain.removeAttribute('class')
             infoMain.classList.add('slide-three');
         } else if (state == 4) {
-            infoText.textContent = `• Systems Integration: Net-Positive •`
+            infoText.textContent = `• Timber Innovation: Inside & Out •`
             infoMain.removeAttribute('class')
             infoMain.classList.add('slide-four');
         } else if (state == 5) {
@@ -268,8 +268,8 @@ function mainViewer() {
 
     startButton.addEventListener('click', function() {
         animateCamera(
-            new THREE.Vector3(-1750,-1750,2500),
-            new THREE.Vector3(0,0,500),
+            new THREE.Vector3(-230,-235,750), 
+            new THREE.Vector3(-25,-30,450), 
             6000
         );
         state += 1;
@@ -280,26 +280,26 @@ function mainViewer() {
         
         if (state === 1) {
             animateCamera(
-                new THREE.Vector3(-1750,-1750,2500), 
-                new THREE.Vector3(0,0,500), 
+                new THREE.Vector3(-230,-235,750), 
+                new THREE.Vector3(-25,-30,450), 
                 6000
             )
         }else if (state === 2) {
             animateCamera(
-                new THREE.Vector3(35,-165,325), 
+                new THREE.Vector3(-50,-135,325), 
                 new THREE.Vector3(40,-15,340), 
                 6000
             )
         } else if (state === 3) {
             animateCamera(
-                new THREE.Vector3(155,-135,500), 
-                new THREE.Vector3(50,55,325), 
+                new THREE.Vector3(30,-150,325), 
+                new THREE.Vector3(40,-15,340), 
                 4000
             )
         } else if (state === 4) {
             animateCamera(
-                new THREE.Vector3(135,-170,325), 
-                new THREE.Vector3(30,95,360), 
+                new THREE.Vector3(200,-120,560), 
+                new THREE.Vector3(70,40,355), 
                 4000
             )
         } else if (state === 5) {
@@ -310,8 +310,8 @@ function mainViewer() {
             )
         } else if (state === 6) {
             animateCamera(
-                new THREE.Vector3(-225,75,625), 
-                new THREE.Vector3(115,70,450), 
+                new THREE.Vector3(-185,75,550), 
+                new THREE.Vector3(90,70,400), 
                 4000
             )
         }
