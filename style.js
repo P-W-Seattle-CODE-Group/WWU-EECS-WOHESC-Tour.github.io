@@ -94,8 +94,9 @@ function infoDropdown () {
     infoHeader.style.height = '5%'
     
     imageDiv.style.height = '80%'
-
+    
     header.style.top = '-195%'
+    header.style.opacity = '0'
     
     infoText.classList.add('animate-out')
 }
@@ -108,9 +109,10 @@ function infoPullUp() {
     infoHeader.style.height = '35%'
     
     imageDiv.style.height = '0%'
-
+    
     header.style.top = '-125%'
-
+    header.style.opacity = '1'
+    
     infoText.classList.add('animate-in')
 }
 
