@@ -74,7 +74,7 @@ let infoHeader = document.getElementById('info-slider-head')
 
 let viewerDiv = document.getElementById('viewer-container')
 let imageDiv = document.getElementById('info-main')
-
+let headerText = document.getElementById('instructions')
 
 let infoSliderState = 0
 infoSlider.addEventListener('click', function() {
@@ -95,8 +95,8 @@ function infoDropdown () {
     
     imageDiv.style.height = '80%'
     
-    header.style.top = '-195%'
-    header.style.opacity = '0'
+    header.style.top = '-200%'
+    headerText.style.opacity = '0'
     
     infoText.classList.add('animate-out')
 }
@@ -111,7 +111,7 @@ function infoPullUp() {
     imageDiv.style.height = '0%'
     
     header.style.top = '-125%'
-    header.style.opacity = '1'
+    headerText.style.opacity = '1'
     
     infoText.classList.add('animate-in')
 }

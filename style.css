@@ -396,7 +396,7 @@ body {
     width: 50%;
     overflow: hidden;
     background-image: url(public/South-Facade-Systems-Cropped.png);
-    background-size: 60vh;
+    background-size: 70%;
     background-position-x: 60%;
     background-position-y: 40%;
     background-repeat: no-repeat;
@@ -412,7 +412,7 @@ body {
     top: -100%;
     overflow: hidden;
     background-image: url(public/South-Facade-Cropped.png);    
-    background-size: 60vh;
+    background-size: 70%;
     background-position-x: 60%;
     background-position-y: 40%;
     background-repeat: no-repeat;
