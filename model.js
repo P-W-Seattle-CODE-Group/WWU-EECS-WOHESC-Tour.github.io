@@ -180,7 +180,7 @@ function mainViewer() {
         requestAnimationFrame( animate );
         TWEEN.update();
         render();
-        
+        /*
         console.log(' ')
         console.log('Position')
         console.log(camera.position)
@@ -189,7 +189,7 @@ function mainViewer() {
         console.log('FOV')
         console.log(camera.fov)
         console.log(' ')
-        
+        */
     }
     animate();
 
@@ -202,31 +202,36 @@ function mainViewer() {
 
     backButton.addEventListener('click', function() {
         console.log('Back Button Clicked!')
-        if (state >= 1) {
+        if (state === 0 || state === 1) {
+            stateMarker.textContent = `0${state}`
+            console.log(state)
+            updateCamera();
+            updateInfoText();
+        } else if (state > 1) {
             state -= 1;
+            stateMarker.textContent = `0${state}`
+            stateMarker.classList.add('animate-left')
+            setTimeout(() => {
+                stateMarker.classList.remove('animate-left')
+            }, 2000);
+            console.log(state)
+            updateCamera();
+            updateInfoText();
         }
-        stateMarker.textContent = `0${state}`
-        stateMarker.classList.add('animate-left')
-        setTimeout(() => {
-            stateMarker.classList.remove('animate-left')
-        }, 2000);
-        console.log(state)
-        updateCamera();
-        updateInfoText();
     })
     nextButton.addEventListener('click', function() {
         console.log('Next Button Clicked!')
         if (state <= 5) {
             state += 1;
+            stateMarker.textContent = `0${state}`
+            stateMarker.classList.add('animate-right')
+            setTimeout(() => {
+                stateMarker.classList.remove('animate-right')
+            }, 2000);
+            console.log(state)
+            updateCamera();
+            updateInfoText();
         }
-        stateMarker.textContent = `0${state}`
-        stateMarker.classList.add('animate-right')
-        setTimeout(() => {
-            stateMarker.classList.remove('animate-right')
-        }, 2000);
-        console.log(state)
-        updateCamera();
-        updateInfoText();
     })
 
 
@@ -238,28 +243,35 @@ function mainViewer() {
 
     function updateInfoText() {
         if (state == 1 || state == 0) {
-            infoText.textContent = `• Welcome! Let's Begin our Tour! Click Here to Learn More! •`
+            infoText.textContent = `Welcome! Click Here to Learn More!`
+            infoMain.removeAttribute('class')
             infoMain.classList.add('slide-one');
+            sectionSlider();
         } else if (state == 2) {
-            infoText.textContent = `• Zero Energy & Zero Carbon: Design Goals & Certification •`
+            infoText.textContent = `Zero Energy & Zero Carbon: Design Goals & Certification`
             infoMain.removeAttribute('class')
             infoMain.classList.add('slide-two');
+            sectionSlider();
         } else if (state == 3) {
-            infoText.textContent = `• Systems Integration: Net-Positive •`
+            infoText.textContent = `Systems Integration: Net-Positive`
             infoMain.removeAttribute('class')
             infoMain.classList.add('slide-three');
+            sectionSlider();
         } else if (state == 4) {
-            infoText.textContent = `• Timber Innovation: Inside & Out •`
+            infoText.textContent = `Timber Innovation: Inside & Out`
             infoMain.removeAttribute('class')
             infoMain.classList.add('slide-four');
+            sectionSlider();
         } else if (state == 5) {
-            infoText.textContent = `• Building Program: A Home for the Future •`
+            infoText.textContent = `Building Program: A Home for the Future`
             infoMain.removeAttribute('class')
             infoMain.classList.add('slide-five');
+            sectionSlider();
         } else if (state == 6) {
-            infoText.textContent = `• Forest Bathing: Biophilic Design & Approach •`
+            infoText.textContent = `Forest Bathing: Biophilic Design & Approach`
             infoMain.removeAttribute('class')
             infoMain.classList.add('slide-six');
+            sectionSlider();
         }
     }
     updateInfoText();
@@ -275,6 +287,60 @@ function mainViewer() {
         state += 1;
     });
 
+    function sectionSlider() {
+        let infoContainer = document.getElementById('info-main')
+        if (state === 0 || state === 1) {
+            infoContainer.innerHTML = (
+                `
+                <div id="slide-text">Text here</div>
+                `
+            )
+        } else if (state === 2) {
+            infoContainer.innerHTML = (
+                `
+                <div id="slide-text">Text here</div>
+                `
+            )
+        } else if (state === 3) {
+
+            infoContainer.innerHTML = (
+                `
+                <div id="image-container"></div>
+                <div id="image-container-overlay"></div>
+                <input type="range" min="0" max="100" value="50" class="slider" id="image-slider">
+                `
+            )
+                
+            let slider = document.getElementById('image-slider');
+            let baseImage = document.getElementById('image-container')
+            let overlayImage = document.getElementById('image-container-overlay')
+                
+            slider.addEventListener('input', function() {
+            console.log(slider.value)
+            baseImage.style.width = `${slider.value}%`
+            overlayImage.style.width = `${100 - slider.value}%`
+            overlayImage.style.left = `${slider.value}%`
+            })
+        } else if (state === 4) {
+            infoContainer.innerHTML = (
+                `
+                <div id="slide-text">Text here</div>
+                `
+            )
+        } else if (state === 5) {
+            infoContainer.innerHTML = (
+                `
+                <div id="slide-text">Text here</div>
+                `
+            )
+        } else if (state === 6) {
+            infoContainer.innerHTML = (
+                `
+                <div id="slide-text">Text here</div>
+                `
+            )
+        }
+    }
 
     function updateCamera () {
         

@@ -6,6 +6,9 @@ let enterButton = document.getElementById("start-button")
 
 let uiDiv = document.getElementById("ui-container")
 let infoDiv = document.getElementById("info-container")
+let header = document.getElementById('header')
+
+let infoText = document.getElementById('slide-text')
 
 function loadingPause () {
     enterButton.textContent="Loading 0%"
@@ -36,6 +39,9 @@ function loadingPause () {
             landingDiv.classList.add('animate-out');
             uiDiv.classList.add('animate-in');
             infoDiv.classList.add('animate-in');
+            setTimeout(() => {
+                header.classList.add('animate-in');
+            }, 4000);
             console.log('Button clicked!');
         })
     }, 6000);
@@ -83,24 +89,37 @@ infoSlider.addEventListener('click', function() {
 function infoDropdown () {
     infoSlider.style.height = '90%';
     infoSlider.style.top = '-105%';
-    viewerDiv.style.top = '-200%'
+    viewerDiv.style.top = '-210%'
     infoSliderState += 1
     infoHeader.style.height = '5%'
     
     imageDiv.style.height = '80%'
+
+    header.style.top = '-195%'
+    
+    infoText.classList.add('animate-out')
 }
 function infoPullUp() {
     infoSlider.style.height = '15%';
-    infoSlider.style.top = '-31%';
-    viewerDiv.style.top = '-125%';
+    infoSlider.style.top = '-30%';
+    viewerDiv.style.top = '-135%';
     infoSliderState -= 1
-      
+    
     infoHeader.style.height = '35%'
-
+    
     imageDiv.style.height = '0%'
+
+    header.style.top = '-125%'
+
+    infoText.classList.add('animate-in')
 }
 
 nextButton.addEventListener('click', function() {
+    if (infoSliderState == 1) {
+        infoPullUp();
+    }
+})
+backButton.addEventListener('click', function() {
     if (infoSliderState == 1) {
         infoPullUp();
     }

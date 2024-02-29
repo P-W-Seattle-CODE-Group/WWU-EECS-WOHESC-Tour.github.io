@@ -246,6 +246,7 @@ body {
     inset 0px 2px 0px rgb(107, 106, 124);
 
     text-shadow: 0px 3px 0px rgb(44,44,39);
+    z-index: 10;
 }
 
 #footer {
@@ -267,7 +268,7 @@ body {
 
 
 #info-container {
-    z-index: 7;
+    z-index: 8;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -327,7 +328,7 @@ body {
     position: relative;
     height: 100%;
     width: 100%;
-    top: -125%;
+    top: -135%;
     
     border-radius: 20px;
     overflow: hidden;
@@ -337,28 +338,26 @@ body {
 #info-main {
     height: 100%;
     width: 90%;
-    background-color: antiquewhite;
     border-radius: 20px;
 }
 
 .slide-one {
-    background-image: url(public/side-view.jpg);
+    background-image: url(public/2022_0503_WWU\ EECS_AERIAL.jpg);
     background-repeat: no-repeat;
-    background-size: 75vh;
+    background-size: 80vh;
     background-position: 60%;
     height: 100%;
     width: 100%;
 }
 .slide-two {
-    background-image: url(public/main-view.jpg);
+    background-image: url(public/side-view.jpg);
     background-repeat: no-repeat;
-    background-size: 130vh;
+    background-size: 60vh;
     background-position: 60%;
     height: 100%;
     width: 100%;
 }
 .slide-three {
-    background-image: url(public/lab-space.jpg);
     background-repeat: no-repeat;
     background-size: 120vh;
     background-position: 50%;
@@ -366,9 +365,9 @@ body {
     width: 100%;
 }
 .slide-four {
-    background-image: url(public/section.jpg);
+    background-image: url(public/Multicultural\ Student\ Lounge\ -\ Inside.jpg);
     background-repeat: no-repeat;
-    background-size: 65vh;
+    background-size: 60vh;
     background-position: 35%;
     height: 100%;
     width: 100%;
@@ -376,8 +375,8 @@ body {
 .slide-five {
     background-image: url(public/exploded-axon.png);
     background-repeat: no-repeat;
-    background-size: 100vh;
-    background-position: 70%;
+    background-size: 90vh;
+    background-position: 75%;
     height: 100%;
     width: 100%;
 }
@@ -391,3 +390,80 @@ body {
 }
 
 
+#image-container {
+    position: relative;
+    height: 100%;
+    width: 50%;
+    overflow: hidden;
+    background-image: url(public/South-Facade-Systems-Cropped.png);
+    background-size: 60vh;
+    background-position-x: 60%;
+    background-position-y: 40%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    border-radius: 20px 00px 0px 20px;
+}
+
+#image-container-overlay {
+    position: relative;
+    height: 100%;
+    width: 50%;
+    left: 50%;
+    top: -100%;
+    overflow: hidden;
+    background-image: url(public/South-Facade-Cropped.png);    
+    background-size: 60vh;
+    background-position-x: 60%;
+    background-position-y: 40%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    border-radius: 0px 20px 20px 0px;
+}
+
+
+.slider {
+    position: relative;
+    top:-150%;
+    width: 100%;
+    
+
+    -webkit-appearance: none;
+    background: none;
+}
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(244,244,239,0.65);
+    border: solid;
+    border-width: 1px;
+    border-color: rgb(254,254,249);
+}
+
+#header {
+    position: relative;
+    top: -125%;
+    height: 10%;
+    width: 100%;
+    z-index: 7;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+
+    
+}
+#instructions {
+    width: 90%;
+    text-align: center;
+    font-size: 10px;
+}
+
+#slide-text {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgb(254,254,249);
+    opacity: 0;
+}
