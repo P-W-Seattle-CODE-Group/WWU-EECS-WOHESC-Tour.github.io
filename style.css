@@ -344,23 +344,20 @@ body {
 .slide-one {
     background-image: url(public/2022_0503_WWU\ EECS_AERIAL.jpg);
     background-repeat: no-repeat;
-    background-size: 80vh;
-    background-position: 60%;
+    background-size: cover;
+    background-position: center;
     height: 100%;
     width: 100%;
 }
 .slide-two {
     background-image: url(public/side-view.jpg);
     background-repeat: no-repeat;
-    background-size: 60vh;
-    background-position: 60%;
+    background-size: cover;
+    background-position: center;
     height: 100%;
     width: 100%;
 }
 .slide-three {
-    background-repeat: no-repeat;
-    background-size: 120vh;
-    background-position: 50%;
     height: 100%;
     width: 100%;
 }
@@ -375,16 +372,16 @@ body {
 .slide-five {
     background-image: url(public/exploded-axon.png);
     background-repeat: no-repeat;
-    background-size: 90vh;
-    background-position: 75%;
+    background-size: cover;
+    background-position: 73%;
     height: 100%;
     width: 100%;
 }
 .slide-six {
     background-image: url(public/breakout.jpg);
     background-repeat: no-repeat;
-    background-size: 60vh;
-    background-position: 45%;
+    background-size: cover;
+    background-position: center;
     height: 100%;
     width: 100%;
 }
@@ -403,32 +400,32 @@ body {
     top: 0;
     bottom: 0;
     width: 100%;
-    background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
 }
 
 #image-container {
     position: absolute;
-    height: 100%;
     background-image: url(public/South-Facade-Systems-Cropped.png);
     border-radius: 20px 0px 0px 20px;
     z-index: 2;
+    background-size: cover;
 }
 
 #image-container-overlay {
     position: absolute;
-    height: 100%;
     background-image: url(public/South-Facade-Cropped.png);    
     border-radius: 0px 20px 20px 0px;
     z-index: 1;
+    background-size: cover;
+    background-position: 0%;
 }
 
 
 .slider {
     position: relative;
     top: 50%;
-    width: 100%;
+    width: 110%;
+    left: -5%;
     
 
     appearance: none;
