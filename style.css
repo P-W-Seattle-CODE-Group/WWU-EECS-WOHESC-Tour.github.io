@@ -389,47 +389,52 @@ body {
     width: 100%;
 }
 
-
-#image-container {
+#image-wrapper {
     position: relative;
     height: 100%;
-    width: 50%;
+    width: 100%;
     overflow: hidden;
-    background-image: url(public/South-Facade-Systems-Cropped.png);
-    background-size: 70%;
-    background-position-x: 60%;
-    background-position-y: 40%;
+    border-radius: 20px;
+}
+
+#image-container,
+#image-container-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    border-radius: 20px 00px 0px 20px;
+}
+
+#image-container {
+    position: absolute;
+    height: 100%;
+    background-image: url(public/South-Facade-Systems-Cropped.png);
+    border-radius: 20px 0px 0px 20px;
+    z-index: 2;
 }
 
 #image-container-overlay {
-    position: relative;
+    position: absolute;
     height: 100%;
-    width: 50%;
-    left: 50%;
-    top: -100%;
-    overflow: hidden;
     background-image: url(public/South-Facade-Cropped.png);    
-    background-size: 70%;
-    background-position-x: 60%;
-    background-position-y: 40%;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
     border-radius: 0px 20px 20px 0px;
+    z-index: 1;
 }
 
 
 .slider {
     position: relative;
-    top:-150%;
+    top: 50%;
     width: 100%;
     
 
     appearance: none;
     -webkit-appearance: none;
     background: none;
+    z-index: 3;
 }
 .slider::-webkit-slider-thumb {
     appearance: none;

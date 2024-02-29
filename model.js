@@ -305,15 +305,21 @@ function mainViewer() {
 
             infoContainer.innerHTML = (
                 `
-                <div id="image-container"></div>
-                <div id="image-container-overlay"></div>
-                <input type="range" min="0" max="100" value="50" class="slider" id="image-slider">
+                <div id='image-wrapper'>
+                    <div id="image-container"></div>
+                    <div id="image-container-overlay"></div>
+                    <input type="range" min="0" max="100" value="50" class="slider" id="image-slider">
+                </div>
                 `
             )
                 
             let slider = document.getElementById('image-slider');
             let baseImage = document.getElementById('image-container')
             let overlayImage = document.getElementById('image-container-overlay')
+            
+            baseImage.style.width = `${slider.value}%`
+            overlayImage.style.width = `${100 - slider.value}%`
+            overlayImage.style.left = `${slider.value}%`
                 
             slider.addEventListener('input', function() {
             console.log(slider.value)
@@ -321,6 +327,7 @@ function mainViewer() {
             overlayImage.style.width = `${100 - slider.value}%`
             overlayImage.style.left = `${slider.value}%`
             })
+        
         } else if (state === 4) {
             infoContainer.innerHTML = (
                 `
