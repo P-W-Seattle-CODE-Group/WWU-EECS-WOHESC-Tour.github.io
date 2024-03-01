@@ -113,7 +113,7 @@ function updateInfoContainer() {
         if (infoContainerState === 1) {
             infoDropdown();
         }
-        if (state >= 1) {
+        if (state >= 2) {
             state -= 1;
             stateMarker.textContent = `0${state}`
             stateMarker.classList.add('animate-left')
@@ -247,10 +247,9 @@ function updateInfoText () {
                 infoHeaderText.style.fontSize = '10px';
                 infoHeaderText.style.lineHeight = '12px';
                 infoHeaderText.textContent = `
-                Reducing embodied carbon by 68% was primarily achieved through the use of wood. The exterior wood siding 
-                is treated naturally using the shoi sugi ban charring process. The interior wood structure is exposed with
-                glulam columns & beams & cross laminated timber floors & ceilings. When selecting  all interior & 
-                exterior materials, the design team always started by asking: Why not wood? 
+                Reducing embodied carbon was primarily achieved through the use of wood. The exterior wood siding 
+                is treated naturally using the shoi sugi ban charring process. The interior structure is exposed with
+                glulam columns / beams & cross laminated timber floors / ceilings. When selecting all materials, the design team always started by asking: Why not wood? 
                 `;
             }
             imageContainer.removeAttribute('class')
@@ -289,10 +288,10 @@ function updateInfoText () {
                 infoHeaderText.style.fontSize = '10px';
                 infoHeaderText.style.lineHeight = '12px';
             infoHeaderText.textContent = `
-            The project harmonizes with the neighboring Sehome Arboreteum & all of the health benefits it offers. Forest bathing
-            has shown numerous health benefits, including lowered blood pressure, heart rate & positively affecting human immune function.
-            Taking inspiration from the arboreteum, biophilic design strategies play a key role throughout the building & ease the transition 
-            from the natueral to built environment.
+            The project harmonizes with the neighboring Sehome Arboreteum & the health benefits it offers. Forest bathing
+            has shown numerous health benefits, including lowered blood pressure & heart rate & positive affects on immune function.
+            Biophilic design strategies play a key role throughout the building & ease the transition 
+            from the natural to built environment.
             `;
         }
     imageContainer.removeAttribute('class')
