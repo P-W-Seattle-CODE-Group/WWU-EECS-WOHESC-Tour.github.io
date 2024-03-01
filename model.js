@@ -1,6 +1,5 @@
 import * as THREE from 'https://unpkg.com/three@0.154.0/build/three.module.js';
 import { OrbitControls } from 'https://unpkg.com/three@0.154.0/examples/jsm/controls/OrbitControls.js';
-import { GLTFLoader } from 'https://unpkg.com/three@0.154.0/examples/jsm/loaders/GLTFLoader.js';
 import { Rhino3dmLoader } from 'https://unpkg.com/three@0.154.0/examples/jsm/loaders/3DMLoader.js';
 import { TWEEN } from 'https://unpkg.com/three@0.139.0/examples/jsm/libs/tween.module.min.js';
 
@@ -266,7 +265,7 @@ function mainViewer() {
                 4000
             )
         }
-        
+
     }
     updateCamera();
 }
