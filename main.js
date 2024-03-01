@@ -175,10 +175,12 @@ function updateInfoText () {
         if (infoContainerState === 0) {
             infoHeaderText.style.textAlign = 'center';
             infoHeaderText.style.fontSize = '12px';
+            infoHeaderText.style.lineHeight = '14px';
             infoHeaderText.textContent = `Welcome! Click Here to Learn More!`;
         } else if (infoContainerState === 1) {
             infoHeaderText.style.textAlign = 'left'
-            infoHeaderText.style.fontSize = '9px';
+            infoHeaderText.style.fontSize = '10px';
+            infoHeaderText.style.lineHeight = '12px';
             infoHeaderText.innerHTML = `
             Thank you for joing us on a tour of the WWU EECS Kaiser Borsari Hall! Please use the next and back buttons to move between 
             slides, at any time you can also use your fingers to rotate, zoom and pan around the model! 
@@ -190,92 +192,102 @@ function updateInfoText () {
         imageContainer.classList.add('slide-one');
         backButton.style.opacity = '0.25';
         sectionSlider();
-
+        
     } else if (state === 2) {
         if (infoContainerState === 0) {
             infoHeaderText.style.textAlign = 'center';
             infoHeaderText.style.fontSize = '12px';
-            infoHeaderText.textContent = `Zero Energy & Zero Carbon: Design Goals & Certification`;
+            infoHeaderText.style.lineHeight = '14px';
+            infoHeaderText.textContent = `Zero Energy & Carbon: Design Goals & Certification`;
         } else if (infoContainerState === 1) {
             infoHeaderText.style.textAlign = 'left';
-            infoHeaderText.style.fontSize = '9px';
+            infoHeaderText.style.fontSize = '10px';
+            infoHeaderText.style.lineHeight = '12px';
             infoHeaderText.textContent = `
             The Electrical Engineering & Computer Science Building will be the first mass timber Higher Education
             STEM building to achieve Zero Energy & Zero Carbon in the United States. It's "Whole Life" (operational
-            & embodied) carbon impacts are reduced by 90% from a comparable "business as usual" project.
-            `;
-        }
-    imageContainer.removeAttribute('class')
-    imageContainer.classList.add('slide-two');
-    backButton.style.opacity = '1';
-    sectionSlider();
-
-    } else if (state === 3) {
-        if (infoContainerState === 0) {
-            infoHeaderText.style.textAlign = 'center';
-            infoHeaderText.style.fontSize = '12px';
-            infoHeaderText.textContent = `Systems Integration: Net-Positive`;
-        } else if (infoContainerState === 1) {
-            infoHeaderText.style.textAlign = 'left';
-            infoHeaderText.style.fontSize = '9px';
-            infoHeaderText.innerHTML = `
-            The building is designed to be net-positive, generating more solar energy than it consumes. All 
-            laboratory spaces have direct access to daylight & views to the Sehome Hill Arboreteum & campus 
-            green space. Glazing is ultra-high performance fiberglass windows with two low-e coatings. 
-            <br>
-            Drag the dot below to reveal the building section!
-            `;
-        }
-    imageContainer.removeAttribute('class')
-    imageContainer.classList.add('slide-three');
-    sectionSlider();
-
-    } else if (state === 4) {
-        if (infoContainerState === 0) {
-            infoHeaderText.style.textAlign = 'center';
-            infoHeaderText.style.fontSize = '12px';
-            infoHeaderText.textContent = `Timber Innovation: Inside & Out`;
-        } else if (infoContainerState === 1) {
-            infoHeaderText.style.textAlign = 'left';
-            infoHeaderText.style.fontSize = '9px';
-            infoHeaderText.textContent = `
-            Reducing embodied carbon by 68% was primarily achieved through the use of wood. The exterior wood siding 
-            is treated naturally using the shoi sugi ban charring process. The interior wood structure is exposed with
-            glulam columns & beams & cross laminated timber floors & ceilings. When selecting  all interior & 
-            exterior materials, the design team always started by asking: Why not wood? 
-            `;
-        }
-    imageContainer.removeAttribute('class')
-    imageContainer.classList.add('slide-four');
-    sectionSlider();
-
-    } else if (state === 5) {
-        if (infoContainerState === 0) {
-            infoHeaderText.style.textAlign = 'center';
-            infoHeaderText.style.fontSize = '12px';
-            infoHeaderText.textContent = `Building Program: A Home for the Future`;
-        } else if (infoContainerState === 1) {
-            infoHeaderText.style.textAlign = 'left';
-            infoHeaderText.style.fontSize = '9px';
-            infoHeaderText.textContent = `
-            The building is designed to be the new home for the WWU Electrical Engineering and Computer Science program,
-            providing state of the art collaboration, teaching & community learning spaces for students. Every floor will have
-            a communal space for students to connect and ideate together in search of innovation and creation. 
-            `;
-        }
-    imageContainer.removeAttribute('class')
-    imageContainer.classList.add('slide-five');
-    nextButton.style.opacity = '1';
-    sectionSlider();
-
-    } else if (state === 6) {
-        if (infoContainerState === 0) {
-            infoHeaderText.style.textAlign = 'center';
-            infoHeaderText.style.fontSize = '12px';
-            infoHeaderText.textContent = `Forest Bathing: Biophilic Design & Approach`;
-        } else if (infoContainerState === 1) {
-            infoHeaderText.style.textAlign = 'left';
-            infoHeaderText.style.fontSize = '9px';
+                & embodied) carbon impacts are reduced by 90% from a comparable "business as usual" project.
+                `;
+            }
+            imageContainer.removeAttribute('class')
+            imageContainer.classList.add('slide-two');
+            backButton.style.opacity = '1';
+            sectionSlider();
+            
+        } else if (state === 3) {
+            if (infoContainerState === 0) {
+                infoHeaderText.style.textAlign = 'center';
+                infoHeaderText.style.fontSize = '12px';
+                infoHeaderText.style.lineHeight = '14px';
+                infoHeaderText.textContent = `Systems Integration: Net-Positive`;
+            } else if (infoContainerState === 1) {
+                infoHeaderText.style.textAlign = 'left';
+                infoHeaderText.style.fontSize = '10px';
+                infoHeaderText.style.lineHeight = '12px';
+                infoHeaderText.innerHTML = `
+                The building is designed to be net-positive, generating more solar energy than it consumes. All 
+                laboratory spaces have direct access to daylight & views to the Sehome Hill Arboreteum & campus 
+                green space. Glazing is ultra-high performance fiberglass windows with two low-e coatings. 
+                <br>
+                Drag the dot below to reveal the building section!
+                `;
+            }
+            imageContainer.removeAttribute('class')
+            imageContainer.classList.add('slide-three');
+            sectionSlider();
+            
+        } else if (state === 4) {
+            if (infoContainerState === 0) {
+                infoHeaderText.style.textAlign = 'center';
+                infoHeaderText.style.fontSize = '12px';
+                infoHeaderText.style.lineHeight = '14px';
+                infoHeaderText.textContent = `Timber Innovation: Inside & Out`;
+            } else if (infoContainerState === 1) {
+                infoHeaderText.style.textAlign = 'left';
+                infoHeaderText.style.fontSize = '10px';
+                infoHeaderText.style.lineHeight = '12px';
+                infoHeaderText.textContent = `
+                Reducing embodied carbon by 68% was primarily achieved through the use of wood. The exterior wood siding 
+                is treated naturally using the shoi sugi ban charring process. The interior wood structure is exposed with
+                glulam columns & beams & cross laminated timber floors & ceilings. When selecting  all interior & 
+                exterior materials, the design team always started by asking: Why not wood? 
+                `;
+            }
+            imageContainer.removeAttribute('class')
+            imageContainer.classList.add('slide-four');
+            sectionSlider();
+            
+        } else if (state === 5) {
+            if (infoContainerState === 0) {
+                infoHeaderText.style.textAlign = 'center';
+                infoHeaderText.style.fontSize = '12px';
+                infoHeaderText.style.lineHeight = '14px';
+                infoHeaderText.textContent = `Building Program: A Home for the Future`;
+            } else if (infoContainerState === 1) {
+                infoHeaderText.style.textAlign = 'left';
+                infoHeaderText.style.fontSize = '10px';
+                infoHeaderText.style.lineHeight = '12px';
+                infoHeaderText.textContent = `
+                The building is designed to be the new home for the WWU Electrical Engineering and Computer Science program,
+                providing state of the art collaboration, teaching & community learning spaces for students. Every floor will have
+                a communal space for students to connect and ideate together in search of innovation and creation. 
+                `;
+            }
+            imageContainer.removeAttribute('class')
+            imageContainer.classList.add('slide-five');
+            nextButton.style.opacity = '1';
+            sectionSlider();
+            
+        } else if (state === 6) {
+            if (infoContainerState === 0) {
+                infoHeaderText.style.textAlign = 'center';
+                infoHeaderText.style.fontSize = '12px';
+                infoHeaderText.style.lineHeight = '14px';
+                infoHeaderText.textContent = `Forest Bathing: Biophilic Design & Approach`;
+            } else if (infoContainerState === 1) {
+                infoHeaderText.style.textAlign = 'left';
+                infoHeaderText.style.fontSize = '10px';
+                infoHeaderText.style.lineHeight = '12px';
             infoHeaderText.textContent = `
             The project harmonizes with the neighboring Sehome Arboreteum & all of the health benefits it offers. Forest bathing
             has shown numerous health benefits, including lowered blood pressure, heart rate & positively affecting human immune function.
