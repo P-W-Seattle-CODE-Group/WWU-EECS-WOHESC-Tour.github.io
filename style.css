@@ -310,18 +310,40 @@ body {
 }
 #info-slider-head {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 35%;
+    height: 40%;
+    width: 100%;
 
     font-weight: 300;
     color: rgb(24, 24, 39);
+}
+#info-arrow {
+    width: 100%;
+    height: 40%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#up-arrow {
+    width: 100%;
+    height: 100%;
+    transform: scaleX(2);
+    opacity: 0.5;
 }
 #info-slider {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 10%;
+}
+#info-header-text {
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 #viewer-container {
     z-index: 6;

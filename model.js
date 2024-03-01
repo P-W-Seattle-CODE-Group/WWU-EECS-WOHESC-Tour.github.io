@@ -236,7 +236,7 @@ function mainViewer() {
 
 
     let stateMarker = document.getElementById('state-marker')
-    let infoText = document.getElementById('info-slider-head')
+    let infoText = document.getElementById('info-header-text')
 
     let infoMain = document.getElementById('info-main')
     infoMain.style.height = '0%';
