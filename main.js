@@ -180,7 +180,7 @@ function updateInfoText () {
         } else if (infoContainerState === 1) {
             infoHeaderText.style.textAlign = 'left'
             infoHeaderText.style.fontSize = '10px';
-            infoHeaderText.style.lineHeight = '12px';
+            infoHeaderText.style.lineHeight = '10px';
             infoHeaderText.innerHTML = `
             Thank you for joing us on a tour of the WWU EECS Kaiser Borsari Hall! Please use the next and back buttons to move between 
             slides, at any time you can also use your fingers to rotate, zoom and pan around the model! 
@@ -202,7 +202,7 @@ function updateInfoText () {
         } else if (infoContainerState === 1) {
             infoHeaderText.style.textAlign = 'left';
             infoHeaderText.style.fontSize = '10px';
-            infoHeaderText.style.lineHeight = '12px';
+            infoHeaderText.style.lineHeight = '10px';
             infoHeaderText.textContent = `
             The Electrical Engineering & Computer Science Building will be the first mass timber Higher Education
             STEM building to achieve Zero Energy & Zero Carbon in the United States. It's "Whole Life" (operational
@@ -223,7 +223,7 @@ function updateInfoText () {
             } else if (infoContainerState === 1) {
                 infoHeaderText.style.textAlign = 'left';
                 infoHeaderText.style.fontSize = '10px';
-                infoHeaderText.style.lineHeight = '12px';
+                infoHeaderText.style.lineHeight = '10px';
                 infoHeaderText.innerHTML = `
                 The building is designed to be net-positive, generating more solar energy than it consumes. All 
                 laboratory spaces have direct access to daylight & views to the Sehome Hill Arboreteum & campus 
@@ -245,7 +245,7 @@ function updateInfoText () {
             } else if (infoContainerState === 1) {
                 infoHeaderText.style.textAlign = 'left';
                 infoHeaderText.style.fontSize = '10px';
-                infoHeaderText.style.lineHeight = '12px';
+                infoHeaderText.style.lineHeight = '10px';
                 infoHeaderText.textContent = `
                 Reducing embodied carbon was primarily achieved through the use of wood. The exterior wood siding 
                 is treated naturally using the shoi sugi ban charring process. The interior structure is exposed with
@@ -265,7 +265,7 @@ function updateInfoText () {
             } else if (infoContainerState === 1) {
                 infoHeaderText.style.textAlign = 'left';
                 infoHeaderText.style.fontSize = '10px';
-                infoHeaderText.style.lineHeight = '12px';
+                infoHeaderText.style.lineHeight = '10px';
                 infoHeaderText.textContent = `
                 The building is designed to be the new home for the WWU Electrical Engineering and Computer Science program,
                 providing state of the art collaboration, teaching & community learning spaces for students. Every floor will have
@@ -286,7 +286,7 @@ function updateInfoText () {
             } else if (infoContainerState === 1) {
                 infoHeaderText.style.textAlign = 'left';
                 infoHeaderText.style.fontSize = '10px';
-                infoHeaderText.style.lineHeight = '12px';
+                infoHeaderText.style.lineHeight = '10px';
             infoHeaderText.textContent = `
             The project harmonizes with the neighboring Sehome Arboreteum & the health benefits it offers. Forest bathing
             has shown numerous health benefits, including lowered blood pressure & heart rate & positive affects on immune function.
