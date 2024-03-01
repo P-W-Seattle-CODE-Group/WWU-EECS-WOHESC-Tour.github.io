@@ -64,12 +64,12 @@ body {
 .text-small {
     font-size: 12px;
     line-height: 14px;
-    font-weight: 200;
+    font-weight: 300;
 }
 .text-medium {
     font-size: 18px;
     line-height: 24px;
-    font-weight: 300;
+    font-weight: 400;
 }
 .text-large {
     font-size: 36px;
@@ -144,7 +144,7 @@ body {
     box-shadow: 0px 5px 10px rgb(104,104,99);
 }
 #landing-text {
-    width: 75%;
+    width: 85%;
     color: rgb(254, 254, 249);
 }
 #start-button {

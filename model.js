@@ -19,7 +19,7 @@ function mainViewer() {
         camera.updateProjectionMatrix();
         renderer.setSize(wrapperWidth, wrapperHeight)
     })
-
+    
     let renderer = new THREE.WebGLRenderer (
         {antialias: true, alpha:true}
     );
