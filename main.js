@@ -1,9 +1,3 @@
-import * as THREE from 'https://unpkg.com/three@0.154.0/build/three.module.js';
-import { OrbitControls } from 'https://unpkg.com/three@0.154.0/examples/jsm/controls/OrbitControls.js';
-import { GLTFLoader } from 'https://unpkg.com/three@0.154.0/examples/jsm/loaders/GLTFLoader.js';
-import { Rhino3dmLoader } from 'https://unpkg.com/three@0.154.0/examples/jsm/loaders/3DMLoader.js';
-import { TWEEN } from 'https://unpkg.com/three@0.139.0/examples/jsm/libs/tween.module.min.js';
-
 const mainContent = document.getElementById('main-content');
 
 const landingDiv = document.getElementById('landing');
@@ -13,6 +7,7 @@ const header = document.getElementById('header');
 const headerText = document.getElementById('instructions');
 
 const uiDiv = document.getElementById('ui-container');
+const stateMarker = document.getElementById('state-marker')
 const nextButton = document.getElementById('next-button');
 const backButton = document.getElementById('back-button');
 
@@ -64,6 +59,9 @@ function loadingButtonStyling () {
             console.log('Button clicked!');
         })
     }, 6000);
+    enterButton.addEventListener('click', function() {
+        state += 1;
+    })
 };
 loadingButtonStyling();
 
@@ -88,18 +86,42 @@ function updateInfoContainer() {
         console.log(infoContainer.offsetHeight)
         if (infoContainerState === 0) {
             infoPullUp();
+            updateInfoText();
         } else if (infoContainerState === 1) {
             infoDropdown();
+            updateInfoText();
         }
     })
     nextButton.addEventListener('click', function() {
-        if (infoContainerState == 1) {
+        console.log('Next Button Clicked!')
+        if (infoContainerState === 1) {
             infoDropdown();
+        }
+        if (state <= 5) {
+            state += 1;
+            stateMarker.textContent = `0${state}`
+            stateMarker.classList.add('animate-right')
+            setTimeout(() => {
+                stateMarker.classList.remove('animate-right')
+            }, 2000);
+            console.log('State is: ' + state)
+            updateInfoText();
         }
     })
     backButton.addEventListener('click', function() {
-        if (infoContainerState== 1) {
+        console.log('Back Button Clicked!')
+        if (infoContainerState === 1) {
             infoDropdown();
+        }
+        if (state >= 1) {
+            state -= 1;
+            stateMarker.textContent = `0${state}`
+            stateMarker.classList.add('animate-left')
+            setTimeout(() => {
+                stateMarker.classList.remove('animate-left')
+            }, 2000);
+            console.log('State is: ' + state)
+            updateInfoText();
         }
     })
 };
@@ -146,4 +168,166 @@ function infoDropdown() {
     infoHeaderText.style.height = '60%'
 
     infoHeaderArrow.style.transform = 'rotate(0deg)';
+}
+
+function updateInfoText () {
+    if (state === 0 || state === 1) {
+        if (infoContainerState === 0) {
+            infoHeaderText.style.textAlign = 'center';
+            infoHeaderText.style.fontSize = '12px';
+            infoHeaderText.textContent = `Welcome! Click Here to Learn More!`;
+        } else if (infoContainerState === 1) {
+            infoHeaderText.style.textAlign = 'left'
+            infoHeaderText.style.fontSize = '9px';
+            infoHeaderText.innerHTML = `
+            Thank you for joing us on a tour of the WWU EECS Kaiser Borsari Hall! Please use the next and back buttons to move between 
+            slides, at any time you can also use your fingers to rotate, zoom and pan around the model! 
+            <br>
+            *Warning, the site depends on your phone's GPU and may drain battery!*
+            `;
+        }
+        imageContainer.removeAttribute('class')
+        imageContainer.classList.add('slide-one');
+        backButton.style.opacity = '0.25';
+        sectionSlider();
+
+    } else if (state === 2) {
+        if (infoContainerState === 0) {
+            infoHeaderText.style.textAlign = 'center';
+            infoHeaderText.style.fontSize = '12px';
+            infoHeaderText.textContent = `Zero Energy & Zero Carbon: Design Goals & Certification`;
+        } else if (infoContainerState === 1) {
+            infoHeaderText.style.textAlign = 'left';
+            infoHeaderText.style.fontSize = '9px';
+            infoHeaderText.textContent = `
+            The Electrical Engineering & Computer Science Building will be the first mass timber Higher Education
+            STEM building to achieve Zero Energy & Zero Carbon in the United States. It's "Whole Life" (operational
+            & embodied) carbon impacts are reduced by 90% from a comparable "business as usual" project.
+            `;
+        }
+    imageContainer.removeAttribute('class')
+    imageContainer.classList.add('slide-two');
+    backButton.style.opacity = '1';
+    sectionSlider();
+
+    } else if (state === 3) {
+        if (infoContainerState === 0) {
+            infoHeaderText.style.textAlign = 'center';
+            infoHeaderText.style.fontSize = '12px';
+            infoHeaderText.textContent = `Systems Integration: Net-Positive`;
+        } else if (infoContainerState === 1) {
+            infoHeaderText.style.textAlign = 'left';
+            infoHeaderText.style.fontSize = '9px';
+            infoHeaderText.innerHTML = `
+            The building is designed to be net-positive, generating more solar energy than it consumes. All 
+            laboratory spaces have direct access to daylight & views to the Sehome Hill Arboreteum & campus 
+            green space. Glazing is ultra-high performance fiberglass windows with two low-e coatings. 
+            <br>
+            Drag the dot below to reveal the building section!
+            `;
+        }
+    imageContainer.removeAttribute('class')
+    imageContainer.classList.add('slide-three');
+    sectionSlider();
+
+    } else if (state === 4) {
+        if (infoContainerState === 0) {
+            infoHeaderText.style.textAlign = 'center';
+            infoHeaderText.style.fontSize = '12px';
+            infoHeaderText.textContent = `Timber Innovation: Inside & Out`;
+        } else if (infoContainerState === 1) {
+            infoHeaderText.style.textAlign = 'left';
+            infoHeaderText.style.fontSize = '9px';
+            infoHeaderText.textContent = `
+            Reducing embodied carbon by 68% was primarily achieved through the use of wood. The exterior wood siding 
+            is treated naturally using the shoi sugi ban charring process. The interior wood structure is exposed with
+            glulam columns & beams & cross laminated timber floors & ceilings. When selecting  all interior & 
+            exterior materials, the design team always started by asking: Why not wood? 
+            `;
+        }
+    imageContainer.removeAttribute('class')
+    imageContainer.classList.add('slide-four');
+    sectionSlider();
+
+    } else if (state === 5) {
+        if (infoContainerState === 0) {
+            infoHeaderText.style.textAlign = 'center';
+            infoHeaderText.style.fontSize = '12px';
+            infoHeaderText.textContent = `Building Program: A Home for the Future`;
+        } else if (infoContainerState === 1) {
+            infoHeaderText.style.textAlign = 'left';
+            infoHeaderText.style.fontSize = '9px';
+            infoHeaderText.textContent = `
+            The building is designed to be the new home for the WWU Electrical Engineering and Computer Science program,
+            providing state of the art collaboration, teaching & community learning spaces for students. Every floor will have
+            a communal space for students to connect and ideate together in search of innovation and creation. 
+            `;
+        }
+    imageContainer.removeAttribute('class')
+    imageContainer.classList.add('slide-five');
+    nextButton.style.opacity = '1';
+    sectionSlider();
+
+    } else if (state === 6) {
+        if (infoContainerState === 0) {
+            infoHeaderText.style.textAlign = 'center';
+            infoHeaderText.style.fontSize = '12px';
+            infoHeaderText.textContent = `Forest Bathing: Biophilic Design & Approach`;
+        } else if (infoContainerState === 1) {
+            infoHeaderText.style.textAlign = 'left';
+            infoHeaderText.style.fontSize = '9px';
+            infoHeaderText.textContent = `
+            The project harmonizes with the neighboring Sehome Arboreteum & all of the health benefits it offers. Forest bathing
+            has shown numerous health benefits, including lowered blood pressure, heart rate & positively affecting human immune function.
+            Taking inspiration from the arboreteum, biophilic design strategies play a key role throughout the building & ease the transition 
+            from the natueral to built environment.
+            `;
+        }
+    imageContainer.removeAttribute('class')
+    imageContainer.classList.add('slide-six');
+    nextButton.style.opacity = '0.25';
+    sectionSlider();
+    }
+}
+updateInfoText();
+
+function sectionSlider() {
+    let infoContainer = document.getElementById('info-main')
+    if (state === 0 || state === 1) {
+        infoContainer.innerHTML = '';
+    } else if (state === 2) {
+        infoContainer.innerHTML = '';
+    } else if (state === 3) {
+        infoContainer.innerHTML = (
+            `
+            <div id='image-wrapper'>
+                <div id="image-container"></div>
+                <div id="image-container-overlay"></div>
+                <input type="range" min="0" max="100" value="50" class="slider" id="image-slider">
+            </div>
+            `
+        )
+            
+        let slider = document.getElementById('image-slider');
+        let baseImage = document.getElementById('image-container')
+        let overlayImage = document.getElementById('image-container-overlay')
+        
+        baseImage.style.width = `${slider.value}%`
+        overlayImage.style.width = `${100 - slider.value}%`
+        overlayImage.style.left = `${slider.value}%`
+            
+        slider.addEventListener('input', function() {
+        console.log(slider.value)
+        baseImage.style.width = `${slider.value}%`
+        overlayImage.style.width = `${100 - slider.value}%`
+        overlayImage.style.left = `${slider.value}%`
+        })
+    
+    } else if (state === 4) {
+        infoContainer.innerHTML = '';
+    } else if (state === 5) {
+        infoContainer.innerHTML = '';
+    } else if (state === 6) {
+        infoContainer.innerHTML = '';
+    }
 }

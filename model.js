@@ -197,88 +197,24 @@ function mainViewer() {
     // State initialization and setup for camera animation
     let state = 0;
 
-    let backButton = document.getElementById('back-button')
     let nextButton = document.getElementById('next-button')
+    let backButton = document.getElementById('back-button')
 
-    backButton.addEventListener('click', function() {
-        console.log('Back Button Clicked!')
-        if (state === 0 || state === 1) {
-            stateMarker.textContent = `0${state}`
-            console.log(state)
-            updateCamera();
-            updateInfoText();
-        } else if (state > 1) {
-            state -= 1;
-            stateMarker.textContent = `0${state}`
-            stateMarker.classList.add('animate-left')
-            setTimeout(() => {
-                stateMarker.classList.remove('animate-left')
-            }, 2000);
-            console.log(state)
-            updateCamera();
-            updateInfoText();
-        }
-    })
     nextButton.addEventListener('click', function() {
         console.log('Next Button Clicked!')
         if (state <= 5) {
             state += 1;
-            stateMarker.textContent = `0${state}`
-            stateMarker.classList.add('animate-right')
-            setTimeout(() => {
-                stateMarker.classList.remove('animate-right')
-            }, 2000);
-            console.log(state)
             updateCamera();
-            updateInfoText();
         }
     })
+    backButton.addEventListener('click', function() {
+        console.log('Back Button Clicked!')
+        if (state >= 1) {
+            state -= 1;
+            updateCamera();
 
-
-    let stateMarker = document.getElementById('state-marker')
-    let infoText = document.getElementById('info-header-text')
-
-    let infoMain = document.getElementById('info-main')
-    infoMain.style.height = '0%';
-
-    function updateInfoText() {
-        if (state == 1 || state == 0) {
-            infoText.textContent = `Welcome! Click Here to Learn More!`
-            infoMain.removeAttribute('class')
-            infoMain.classList.add('slide-one');
-            sectionSlider();
-            backButton.style.opacity = '0.25'
-        } else if (state == 2) {
-            infoText.textContent = `Zero Energy & Zero Carbon: Design Goals & Certification`
-            infoMain.removeAttribute('class')
-            infoMain.classList.add('slide-two');
-            sectionSlider();
-            backButton.style.opacity = '1'
-        } else if (state == 3) {
-            infoText.textContent = `Systems Integration: Net-Positive`
-            infoMain.removeAttribute('class')
-            infoMain.classList.add('slide-three');
-            sectionSlider();
-        } else if (state == 4) {
-            infoText.textContent = `Timber Innovation: Inside & Out`
-            infoMain.removeAttribute('class')
-            infoMain.classList.add('slide-four');
-            sectionSlider();
-        } else if (state == 5) {
-            infoText.textContent = `Building Program: A Home for the Future`
-            infoMain.removeAttribute('class')
-            infoMain.classList.add('slide-five');
-            sectionSlider();
-            nextButton.style.opacity = '1'
-        } else if (state == 6) {
-            infoText.textContent = `Forest Bathing: Biophilic Design & Approach`
-            infoMain.removeAttribute('class')
-            infoMain.classList.add('slide-six');
-            sectionSlider();
-            nextButton.style.opacity = '0.25'
         }
-    }
-    updateInfoText();
+    })
 
     let startButton = document.getElementById('start-button')
 
@@ -290,68 +226,6 @@ function mainViewer() {
         );
         state += 1;
     });
-
-    function sectionSlider() {
-        let infoContainer = document.getElementById('info-main')
-        if (state === 0 || state === 1) {
-            infoContainer.innerHTML = (
-                `
-                <div id="slide-text">Text here</div>
-                `
-            )
-        } else if (state === 2) {
-            infoContainer.innerHTML = (
-                `
-                <div id="slide-text">Text here</div>
-                `
-            )
-        } else if (state === 3) {
-
-            infoContainer.innerHTML = (
-                `
-                <div id='image-wrapper'>
-                    <div id="image-container"></div>
-                    <div id="image-container-overlay"></div>
-                    <input type="range" min="0" max="100" value="50" class="slider" id="image-slider">
-                </div>
-                `
-            )
-                
-            let slider = document.getElementById('image-slider');
-            let baseImage = document.getElementById('image-container')
-            let overlayImage = document.getElementById('image-container-overlay')
-            
-            baseImage.style.width = `${slider.value}%`
-            overlayImage.style.width = `${100 - slider.value}%`
-            overlayImage.style.left = `${slider.value}%`
-                
-            slider.addEventListener('input', function() {
-            console.log(slider.value)
-            baseImage.style.width = `${slider.value}%`
-            overlayImage.style.width = `${100 - slider.value}%`
-            overlayImage.style.left = `${slider.value}%`
-            })
-        
-        } else if (state === 4) {
-            infoContainer.innerHTML = (
-                `
-                <div id="slide-text">Text here</div>
-                `
-            )
-        } else if (state === 5) {
-            infoContainer.innerHTML = (
-                `
-                <div id="slide-text">Text here</div>
-                `
-            )
-        } else if (state === 6) {
-            infoContainer.innerHTML = (
-                `
-                <div id="slide-text">Text here</div>
-                `
-            )
-        }
-    }
 
     function updateCamera () {
         
@@ -392,6 +266,7 @@ function mainViewer() {
                 4000
             )
         }
+        
     }
     updateCamera();
 }
