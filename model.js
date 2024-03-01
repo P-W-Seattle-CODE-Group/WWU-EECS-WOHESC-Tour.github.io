@@ -247,11 +247,13 @@ function mainViewer() {
             infoMain.removeAttribute('class')
             infoMain.classList.add('slide-one');
             sectionSlider();
+            backButton.style.opacity = '0.25'
         } else if (state == 2) {
             infoText.textContent = `Zero Energy & Zero Carbon: Design Goals & Certification`
             infoMain.removeAttribute('class')
             infoMain.classList.add('slide-two');
             sectionSlider();
+            backButton.style.opacity = '1'
         } else if (state == 3) {
             infoText.textContent = `Systems Integration: Net-Positive`
             infoMain.removeAttribute('class')
@@ -267,11 +269,13 @@ function mainViewer() {
             infoMain.removeAttribute('class')
             infoMain.classList.add('slide-five');
             sectionSlider();
+            nextButton.style.opacity = '1'
         } else if (state == 6) {
             infoText.textContent = `Forest Bathing: Biophilic Design & Approach`
             infoMain.removeAttribute('class')
             infoMain.classList.add('slide-six');
             sectionSlider();
+            nextButton.style.opacity = '0.25'
         }
     }
     updateInfoText();
